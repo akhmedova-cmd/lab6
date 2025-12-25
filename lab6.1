@@ -1,0 +1,22 @@
+# Программа для формирования словаря уникальных авторов
+books_dict = {}
+
+print("Ввод информации о книгах (формат: автор: название)")
+print("Пустая строка - завершение ввода")
+
+while True:
+    line = input().strip()
+    if line == "":
+        break
+
+    if ':' in line:
+        author, title = line.split(':', 1)
+        author, title = author.strip(), title.strip()
+
+        if author and title and author not in books_dict:
+            books_dict[author] = title
+
+
+print("\nРезультат:")
+for author, title in books_dict.items():
+    print(f"{author}: {title}")
